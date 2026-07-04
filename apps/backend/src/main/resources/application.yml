@@ -1,0 +1,46 @@
+# =============================================
+# AI Skill Gap Analyzer - Spring Boot Config
+# =============================================
+
+server:
+  port: ${PORT:${SERVER_PORT:4000}}
+  servlet:
+    context-path: /api/v1
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: skill-gap-analyzer
+
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/skill_gap_analyzer}
+
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+
+# ── JWT Configuration ──
+app:
+  jwt:
+    access-secret: ${JWT_ACCESS_SECRET:dev-access-secret-change-in-production-abc123xyz}
+    refresh-secret: ${JWT_REFRESH_SECRET:dev-refresh-secret-change-in-production-def456uvw}
+    access-expiration-ms: 900000        # 15 minutes
+    refresh-expiration-ms: 604800000    # 7 days
+
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:3000,http://localhost:5173}
+
+  upload:
+    dir: ./uploads
+    max-file-size-mb: 5
+
+logging:
+  level:
+    root: INFO
+    com.skillgap: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

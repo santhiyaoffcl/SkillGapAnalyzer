@@ -1,0 +1,19 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+*.env
+
+# Maven / Build
+target/
+*.class
+
+# Logs
+logs/
+*.log
+
+# OS / Editor files
+.DS_Store
+.idea
+.vscode/*
+*.suo
