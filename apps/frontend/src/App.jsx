@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { api } from './services/api';
+import { generateStudyPlan } from './services/studyPlanHelper';
 import './index.css';
 import DarkVeil from './DarkVeil';
 
@@ -305,64 +306,7 @@ export default function App() {
     }, 1000);
   };
 
-  // Dynamic AI Study Plan Generator
-  const generateStudyPlan = (missing, role) => {
-    if (!missing || missing.length === 0) {
-      return [
-        {
-          phase: "Phase 1: Mastery & Leadership",
-          duration: "Weeks 1-2",
-          title: `Advanced Architecture for ${role}`,
-          tasks: [
-            { id: "t1", text: "Design a high-concurrency distributed system simulation", completed: false },
-            { id: "t2", text: "Conduct open-source code reviews and document architectural tradeoffs", completed: false },
-            { id: "t3", text: "Optimize database query execution plans and caching layers", completed: false }
-          ],
-          resource: "High Scalability & Martin Fowler's Architecture Guides"
-        }
-      ];
-    }
-
-    const skill1 = missing[0] || "Core Fundamentals";
-    const skill2 = missing[1] || missing[0] || "Advanced Systems";
-    const skill3 = missing[2] || "Cloud Deployment";
-
-    return [
-      {
-        phase: "Phase 1: Foundation & Core Theory",
-        duration: "Weeks 1-2",
-        title: `Mastering ${skill1}`,
-        tasks: [
-          { id: "p1_1", text: `Read official documentation and architectural specifications for ${skill1}`, completed: false },
-          { id: "p1_2", text: `Complete 3 hands-on coding labs focusing on ${skill1} fundamentals`, completed: false },
-          { id: "p1_3", text: `Build a standalone sandbox module implementing core patterns of ${skill1}`, completed: false }
-        ],
-        resource: `Official Documentation & Interactive Tutorials for ${skill1}`
-      },
-      {
-        phase: "Phase 2: Production Integration",
-        duration: "Weeks 3-4",
-        title: `Integrating ${skill2} & System Design`,
-        tasks: [
-          { id: "p2_1", text: `Incorporate ${skill2} into your existing Full Stack / Spring Boot backend`, completed: false },
-          { id: "p2_2", text: `Write automated unit and integration tests covering new data flows`, completed: false },
-          { id: "p2_3", text: `Implement error handling, logging, and performance monitoring for ${skill2}`, completed: false }
-        ],
-        resource: `Enterprise Design Patterns & Production Best Practices`
-      },
-      {
-        phase: "Phase 3: Capstone Deployment & Readiness",
-        duration: "Weeks 5-6",
-        title: `Portfolio Capstone & Interview Mastery`,
-        tasks: [
-          { id: "p3_1", text: `Deploy your integrated ${skill1} & ${skill2} application to Docker / Cloud container`, completed: false },
-          { id: "p3_2", text: `Add quantifiable achievements to your resume (e.g., 'Implemented ${skill1} reducing latency by 35%')`, completed: false },
-          { id: "p3_3", text: `Practice system design mock interviews focusing on ${role} architecture`, completed: false }
-        ],
-        resource: `Tech Interview Handbook & Cloud Deployment Guides`
-      }
-    ];
-  };
+  // Dynamic AI Study Plan is imported from studyPlanHelper.js
 
   // Skill Gap Analysis Engine
   const runAnalysis = (customSkills) => {
