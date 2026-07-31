@@ -620,7 +620,7 @@ export default function App() {
       }}>
         <div className="container flex-between">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }} onClick={() => setActiveTab('home')}>
-            <div style={{
+            <div className="hover-float" style={{
               background: 'var(--gradient-accent)',
               width: '42px', height: '42px', borderRadius: '12px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -1702,12 +1702,12 @@ export default function App() {
 
       {/* ── AUTH MODAL (Login / Register) ── */}
       {authModal && (
-        <div style={{
+        <div className="animate-fade-in" style={{
           position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
           background: 'rgba(0, 0, 0, 0.75)', backdropFilter: 'blur(10px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '1rem'
         }} onClick={() => setAuthModal(null)}>
-          <div className="glass-card animate-fade-in-up" style={{ width: '100%', maxWidth: '460px', padding: '2.75rem', position: 'relative', background: '#111128', border: '1px solid rgba(108, 99, 255, 0.5)' }} onClick={(e) => e.stopPropagation()}>
+          <div className="glass-card animate-scale-in" style={{ width: '100%', maxWidth: '460px', padding: '2.75rem', position: 'relative', background: '#111128', border: '1px solid rgba(108, 99, 255, 0.5)' }} onClick={(e) => e.stopPropagation()}>
             <button 
               onClick={() => setAuthModal(null)}
               style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', background: 'none', border: 'none', color: 'var(--color-text-muted)', fontSize: '1.75rem', cursor: 'pointer', lineHeight: 1 }}
