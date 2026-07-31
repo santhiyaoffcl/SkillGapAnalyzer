@@ -186,6 +186,30 @@ export default function App() {
     }
   }, [chatMessages, activeTab]);
 
+  // Set up Scroll Animations via IntersectionObserver
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.05,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.scroll-animate');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, [activeTab, analysisResult, studyPlan]);
+
   const checkHealth = async () => {
     try {
       const res = await api.getHealth();
@@ -776,7 +800,7 @@ export default function App() {
                   Our agentic AI pipeline transforms passive learning into dynamic, goal-oriented career progression.
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.75rem', textAlign: 'left' }}>
-                  <div className="glass-card" style={{ transition: 'transform 0.3s ease', border: '1px solid rgba(108, 99, 255, 0.25)' }}>
+                  <div className="glass-card scroll-animate delay-100" style={{ border: '1px solid rgba(108, 99, 255, 0.25)' }}>
                     <div style={{ 
                       width: '52px', height: '52px', borderRadius: '14px', background: 'rgba(108, 99, 255, 0.15)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem',
@@ -790,7 +814,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="glass-card" style={{ transition: 'transform 0.3s ease', border: '1px solid rgba(0, 255, 209, 0.25)' }}>
+                  <div className="glass-card scroll-animate delay-200" style={{ border: '1px solid rgba(0, 255, 209, 0.25)' }}>
                     <div style={{ 
                       width: '52px', height: '52px', borderRadius: '14px', background: 'rgba(0, 255, 209, 0.15)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem',
@@ -804,7 +828,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="glass-card" style={{ transition: 'transform 0.3s ease', border: '1px solid rgba(192, 132, 252, 0.25)' }}>
+                  <div className="glass-card scroll-animate delay-300" style={{ border: '1px solid rgba(192, 132, 252, 0.25)' }}>
                     <div style={{ 
                       width: '52px', height: '52px', borderRadius: '14px', background: 'rgba(192, 132, 252, 0.15)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem',
@@ -973,7 +997,7 @@ export default function App() {
               </div>
 
               {/* Top Banner: Resume Uploader */}
-              <div className="glass-card" style={{ marginBottom: '2rem', border: '1px solid rgba(108, 99, 255, 0.4)', background: 'rgba(17, 17, 40, 0.7)' }}>
+              <div className="glass-card scroll-animate" style={{ marginBottom: '2rem', border: '1px solid rgba(108, 99, 255, 0.4)', background: 'rgba(17, 17, 40, 0.7)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                   <div>
                     <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#fff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -1029,7 +1053,7 @@ export default function App() {
               {/* Main Analyzer Grid */}
               <div className="grid-2col">
                 {/* Left Column: Role Configuration & Manual Skills */}
-                <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div className="glass-card scroll-animate delay-100" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: '700', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.75rem', color: '#fff' }}>
                     1. Role & Skill Setup
                   </h3>
@@ -1121,7 +1145,7 @@ export default function App() {
                 </div>
 
                 {/* Right Column: Target Role Requirements & Output */}
-                <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', minHeight: '520px' }}>
+                <div className="glass-card scroll-animate delay-200" style={{ display: 'flex', flexDirection: 'column', minHeight: '520px' }}>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: '700', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.75rem', marginBottom: '1.5rem', color: '#fff', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span>2. Competency Analysis</span>
                     <span style={{ fontSize: '0.8rem', color: 'var(--color-accent-light)', fontWeight: '500' }}>{CAREER_ROLES[targetRole].level} Tier</span>
@@ -1220,7 +1244,7 @@ export default function App() {
                         {/* Study Plan Phase Cards */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.25rem' }}>
                           {studyPlan.map((phase, pIdx) => (
-                            <div key={pIdx} className="study-card">
+                            <div key={pIdx} className={`study-card scroll-animate delay-${(pIdx % 4) * 100}`} style={{ transitionDelay: `${(pIdx % 4) * 100}ms` }}>
                               <div className="flex-between" style={{ marginBottom: '0.75rem' }}>
                                 <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--color-accent-light)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                                   {phase.phase} • {phase.duration}
