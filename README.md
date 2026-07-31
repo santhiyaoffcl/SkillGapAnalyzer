@@ -1,12 +1,15 @@
-# 🚀 SkillGap Analyzer
+<div align="center">
+  <h1>🚀 SkillGap Analyzer</h1>
+  <p><strong>An Enterprise AI-Powered Career Competency Benchmarking & Mentorship Platform</strong></p>
 
-**An Enterprise AI-Powered Career Competency Benchmarking & Mentorship Platform**
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge&logo=vercel)](https://authentic-art-production-9e0b.up.railway.app/)
-[![Backend](https://img.shields.io/badge/Backend-Spring%20Boot-brightgreen?style=for-the-badge&logo=springboot)](https://spring.io/projects/spring-boot)
-[![Frontend](https://img.shields.io/badge/Frontend-React%2019-blue?style=for-the-badge&logo=react)](https://react.dev)
-[![Database](https://img.shields.io/badge/Database-MongoDB-green?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
-[![Docker](https://img.shields.io/badge/Docker-Supported-blue?style=for-the-badge&logo=docker)](https://www.docker.com/)
+  <p>
+    <a href="https://authentic-art-production-9e0b.up.railway.app/" target="_blank"><img src="https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
+    <a href="https://spring.io/projects/spring-boot" target="_blank"><img src="https://img.shields.io/badge/Backend-Spring%20Boot-brightgreen?style=for-the-badge&logo=springboot" alt="Backend" /></a>
+    <a href="https://react.dev" target="_blank"><img src="https://img.shields.io/badge/Frontend-React%2019-blue?style=for-the-badge&logo=react" alt="Frontend" /></a>
+    <a href="https://www.mongodb.com/" target="_blank"><img src="https://img.shields.io/badge/Database-MongoDB-green?style=for-the-badge&logo=mongodb" alt="Database" /></a>
+    <a href="https://www.docker.com/" target="_blank"><img src="https://img.shields.io/badge/Docker-Supported-blue?style=for-the-badge&logo=docker" alt="Docker" /></a>
+  </p>
+</div>
 
 In today's fast-moving tech landscape, engineers struggle to bridge the gap between their current skill sets and high-growth industry roles. Traditional learning platforms offer static video courses without personalized feedback.
 
