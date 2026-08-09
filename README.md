@@ -3,7 +3,8 @@
   <p><strong>An Enterprise AI-Powered Career Competency Benchmarking & Mentorship Platform</strong></p>
 
   <p>
-    <a href="https://authentic-art-production-9e0b.up.railway.app/" target="_blank"><img src="https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
+    <a href="https://vercel.com" target="_blank"><img src="https://img.shields.io/badge/Frontend-Vercel-black?style=for-the-badge&logo=vercel" alt="Vercel" /></a>
+    <a href="https://render.com" target="_blank"><img src="https://img.shields.io/badge/Backend-Render-46E3B7?style=for-the-badge&logo=render" alt="Render" /></a>
     <a href="https://spring.io/projects/spring-boot" target="_blank"><img src="https://img.shields.io/badge/Backend-Spring%20Boot-brightgreen?style=for-the-badge&logo=springboot" alt="Backend" /></a>
     <a href="https://react.dev" target="_blank"><img src="https://img.shields.io/badge/Frontend-React%2019-blue?style=for-the-badge&logo=react" alt="Frontend" /></a>
     <a href="https://www.mongodb.com/" target="_blank"><img src="https://img.shields.io/badge/Database-MongoDB-green?style=for-the-badge&logo=mongodb" alt="Database" /></a>
@@ -17,8 +18,9 @@ In today's fast-moving tech landscape, engineers struggle to bridge the gap betw
 
 ---
 
-## 🔗 Live Demo
-Access the live deployment on Railway: **[https://authentic-art-production-9e0b.up.railway.app/](https://authentic-art-production-9e0b.up.railway.app/)**
+## 🔗 Deployment
+The app is deployed using **Vercel** (Frontend) and **Render** (Backend) with **MongoDB Atlas** as the cloud database.
+See [deployment_guide.md](./deployment_guide.md) for full deployment steps.
 
 ---
 

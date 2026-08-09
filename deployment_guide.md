@@ -1,6 +1,6 @@
 # SkillGap Analyzer Deployment Guide
 
-This guide describes how to migrate your deployment from Railway to **Vercel** (for the frontend) and **Render** (for the backend), using a free **MongoDB Atlas** database.
+This guide describes how to deploy the full stack using **Vercel** (for the frontend) and **Render** (for the backend), with a free **MongoDB Atlas** cloud database.
 
 ---
 
