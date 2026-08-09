@@ -257,8 +257,28 @@ export default function App() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setAuthLoading(true);
     setAuthError(null);
+
+    // ── Client-side password validation ──
+    const pwd = registerForm.password;
+    if (pwd.length < 8) {
+      setAuthError('Password must be at least 8 characters long.');
+      return;
+    }
+    if (!/(?=.*[a-z])/.test(pwd)) {
+      setAuthError('Password must contain at least one lowercase letter.');
+      return;
+    }
+    if (!/(?=.*[A-Z])/.test(pwd)) {
+      setAuthError('Password must contain at least one uppercase letter.');
+      return;
+    }
+    if (!/(?=.*\d)/.test(pwd)) {
+      setAuthError('Password must contain at least one number.');
+      return;
+    }
+
+    setAuthLoading(true);
     try {
       const res = await api.register(registerForm);
       if (res.success && res.data) {

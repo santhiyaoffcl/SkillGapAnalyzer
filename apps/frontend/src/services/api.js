@@ -26,6 +26,12 @@ async function request(endpoint, options = {}) {
     const data = await response.json();
 
     if (!response.ok) {
+      // If there are field-level validation errors, surface them directly
+      const fieldDetails = data?.error?.details;
+      if (fieldDetails && fieldDetails.length > 0) {
+        const fieldMessages = fieldDetails.map(e => e.message).join(' • ');
+        throw new Error(fieldMessages);
+      }
       throw new Error(data?.error?.message || data?.message || 'An error occurred during request');
     }
 
