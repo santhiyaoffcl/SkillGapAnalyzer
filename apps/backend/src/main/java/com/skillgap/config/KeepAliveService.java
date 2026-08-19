@@ -14,11 +14,9 @@ import org.springframework.web.client.RestTemplate;
 public class KeepAliveService {
 
     private static final Logger logger = LoggerFactory.getLogger(KeepAliveService.class);
-    private final RestTemplate restTemplate;
 
-    public KeepAliveService(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
+    // Create RestTemplate internally to avoid Spring bean dependency issues
+    private final RestTemplate restTemplate = new RestTemplate();
 
     /**
      * Scheduled task that runs every 10 minutes (600000 milliseconds).
@@ -36,7 +34,7 @@ public class KeepAliveService {
             }
 
             // Call the health check endpoint to keep backend alive
-            String response = restTemplate.getForObject(backendUrl + "/api/v1/health", String.class);
+            restTemplate.getForObject(backendUrl + "/api/v1/health", String.class);
             logger.info("✓ Keep-alive ping successful at: {}", System.currentTimeMillis());
 
         } catch (Exception e) {
