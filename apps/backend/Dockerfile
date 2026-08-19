@@ -12,4 +12,8 @@ RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 4000
-ENTRYPOINT ["java", "-XX:+UseG1GC", "-jar", "app.jar"]
+ENTRYPOINT ["java", \
+  "-XX:+UseG1GC", \
+  "-Xms128m", "-Xmx512m", \
+  "-Djava.security.egd=file:/dev/./urandom", \
+  "-jar", "app.jar"]

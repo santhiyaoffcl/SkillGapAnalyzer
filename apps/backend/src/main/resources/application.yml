@@ -39,8 +39,8 @@ app:
 
 logging:
   level:
-    root: INFO
-    com.skillgap: DEBUG
-    org.springframework.security: DEBUG
+    root: WARN
+    com.skillgap: INFO
+    org.springframework.security: WARN
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
